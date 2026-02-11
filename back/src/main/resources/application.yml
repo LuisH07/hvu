@@ -48,6 +48,10 @@ springdoc:
 
 server:
   port: 8081
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-binding-errors: always
 
 common:
   seeders: true
@@ -82,3 +86,15 @@ spring:
         path: /app/uploads/fotos/
         max-size: 5MB
         allowed-types: image/png,image/jpeg,image/jpg,image/webp
+
+server:
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-binding-errors: always
+
+logging:
+  level:
+    root: INFO
+    br.edu.ufape.hvu: DEBUG
+    org.springframework.web: DEBUG
