@@ -1,0 +1,2 @@
+ALTER TABLE foto
+DROP COLUMN titulo;

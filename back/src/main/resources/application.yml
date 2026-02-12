@@ -54,7 +54,7 @@ server:
     include-binding-errors: always
 
 common:
-  seeders: true
+  seeders: false
   front: http://localhost:3000/,https://lmtsteste06.ufape.edu.br/
   back: http://localhost:8081/,https://lmtsteste03.ufape.edu.br/
   docker: http://keycloak:8080/  # Mudar para http://keycloak:8080/ se for rodar com docker
