@@ -445,8 +445,25 @@ function CreateConsulta() {
     );
   }
 
+  const sanitizeWeightValue = (value) => {
+    const numericOnly = value.replace(/,/g, ".").replace(/[^\d.]/g, "");
+    const parts = numericOnly.split(".");
+    if (parts.length <= 2) return numericOnly;
+    return `${parts[0]}.${parts.slice(1).join("")}`;
+  };
+
+  const preventInvalidNumberKeys = (event) => {
+    if (["e", "E", "+", "-"].includes(event.key)) {
+      event.preventDefault();
+    }
+  };
+
   const handleConsultaChange = (event) => {
     const { name, value } = event.target;
+    if (name === "pesoAtual") {
+      setConsulta({ ...consulta, [name]: sanitizeWeightValue(value) });
+      return;
+    }
     setConsulta({ ...consulta, [name]: value });
   };
 
@@ -663,11 +680,15 @@ function CreateConsulta() {
                   Peso atual<span className={styles.obrigatorio}>*</span>
                 </label>
                 <input
-                  type="text"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  inputMode="decimal"
                   className={`form-control ${styles.input} ${errors.pesoAtual ? "is-invalid" : ""}`}
                   name="pesoAtual"
-                  placeholder="Digite o peso do animal"
+                  placeholder="Digite o peso do animal (kg)"
                   value={consulta.pesoAtual || ""}
+                  onKeyDown={preventInvalidNumberKeys}
                   onChange={handleConsultaChange}
                 />
                 {errors.pesoAtual && (

@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2em;
+    margin-top: 1em;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -84,7 +84,7 @@
 .list {
     list-style-type: none;
     padding: 0; 
-    margin: 0 auto 5em auto; 
+    margin: 0 auto 2em auto; 
     max-width: 1200px; 
     width: 90%; 
 }
@@ -160,12 +160,43 @@
 }
 
 
+.headerArea {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.searchWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.ficha_info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
 .ficha_nome {
     font-size: 16px;
     color: #333;
     font-weight: 500;
 }
 
+.ficha_medico {
+    font-size: 14px;
+    color: #606060;
+    font-weight: 500;
+}
+
+.medicoPrincipal {
+    margin: 0;
+    font-size: 15px;
+    color: #327053;
+    font-weight: 600;
+}
 
 .acessar_button {
     width: 170px;
@@ -194,6 +225,10 @@
     box-sizing: border-box; 
 }
 
+.embeddedContainer {
+    padding: 0;
+}
+
 @media only screen and (max-width: 700px) {
     .voltar {
         margin-left: 1em;
@@ -215,6 +250,14 @@
         flex-direction: column; 
         align-items: flex-start; 
         gap: 12px;
+    }
+
+    .ficha_info {
+        width: 100%;
+    }
+
+    .acessar_button {
+        width: 100%;
     }
 }
 
